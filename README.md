@@ -15,5 +15,11 @@ This is a portfolio website which will comprise of the following sections:
 - virtualenv
 - awsebcli
 
+## Starting the venv
 
+source ~/eb-virt/activate
+
+## ToDO
+- install Elastic Beanstalk Cli
+- remember app name is "dawnweb" so any config details should be named accordingly 
 
