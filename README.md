@@ -16,10 +16,16 @@ This is a portfolio website which will comprise of the following sections:
 - awsebcli
 
 ## Starting the venv
-
-source ~/eb-virt/activate
+source ~/eb-virt/bin/activate
 
 ## ToDO
-- install Elastic Beanstalk Cli
-- remember app name is "dawnweb" so any config details should be named accordingly 
+- update index.html template
 
+## Reference doc
+https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Home_page
+
+
+## REMEMBER
+every time you update the models.py, run the following commands:
+- python3 manage.py migrate
+- python3 manage.py makemigrations
