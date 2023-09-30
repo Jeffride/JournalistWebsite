@@ -31,3 +31,7 @@ https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Home_page
 every time you update the models.py, run the following commands:
 - python3 manage.py migrate
 - python3 manage.py makemigrations
+
+## Gallery
+<img width="227" alt="Screenshot 2023-09-30 at 17 53 06" src="https://github.com/Jeffride/JournalistWebsite/assets/43136483/3e6b7994-358e-4ac5-a0cf-5ee046b089da">
+
