@@ -33,18 +33,18 @@ every time you update the models.py, run the following commands:
 - python3 manage.py makemigrations
 
 ## Gallery
-- Landing page:
+### Landing page:
 <img width="1437" alt="Screenshot 2023-09-30 at 17 49 09" src="https://github.com/Jeffride/JournalistWebsite/assets/43136483/86dff368-749c-434a-a018-b927cee90d21">
 
-- About:
+### About:
   <img width="1432" alt="Screenshot 2023-09-30 at 17 49 54" src="https://github.com/Jeffride/JournalistWebsite/assets/43136483/7bb5b49b-dac7-4ef8-9e02-c6e42ff3a852">
 
-- Publications:
+### Experience:
   <img width="1426" alt="Screenshot 2023-09-30 at 17 50 16" src="https://github.com/Jeffride/JournalistWebsite/assets/43136483/97354f71-6b5e-4bce-afb1-8bbd6b31b599">
 
-- Experience:
+### Publications:
 <img width="1436" alt="Screenshot 2023-09-30 at 17 50 29" src="https://github.com/Jeffride/JournalistWebsite/assets/43136483/71087c28-3829-43a7-8be9-6e2810f9870b">
 
-- Mobile site menu:
+### Mobile site menu:
 <img width="227" alt="Screenshot 2023-09-30 at 17 53 06" src="https://github.com/Jeffride/JournalistWebsite/assets/43136483/3e6b7994-358e-4ac5-a0cf-5ee046b089da">
 
