@@ -23,6 +23,54 @@
 #freecssfooter div#fcssholder div:first-child{display:block;}
 #freecssfooter div#fcssholder div:first-child a{float:none;margin:0 auto;}
 
+/* Search bar styles */
+.search-container {
+  margin: 0 auto 2rem;
+  max-width: 600px;
+}
+
+.search-box {
+  display: flex;
+  border: 2px solid #3498db;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#searchInput {
+  flex-grow: 1;
+  padding: 12px 20px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #333;
+}
+
+#searchButton {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 0 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#searchButton:hover {
+  background-color: #2980b9;
+}
+
+.hidden-article {
+  display: none;
+}
+
+.no-results {
+  text-align: center;
+  padding: 20px;
+  font-size: 18px;
+  color: #666;
+  font-style: italic;
+}
+
 /* Added styles for improved readability */
 .portfolio-details {
   padding: 2rem 0;
@@ -140,6 +188,12 @@
       <h2>Published Work</h2>
     </div>
     <div class="container">
+      <div class="search-container">
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="Search articles...">
+          <button id="searchButton"><i class="fa fa-search"></i></button>
+        </div>
+      </div>
 
       <div class="publication-section">
         <h3 class="publication-title">Science Magazine</h3>
@@ -252,5 +306,92 @@
 <script src="./js/bootstrap.min.js"></script>
 <script src="./js/plugins.js"></script>
 <script src="./js/custom.js"></script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const searchInput = document.getElementById('searchInput');
+    const searchButton = document.getElementById('searchButton');
+    const publicationSections = document.querySelectorAll('.publication-section');
+    const container = document.querySelector('.container');
+    
+    // Create a no results message element (hidden by default)
+    const noResultsMessage = document.createElement('div');
+    noResultsMessage.className = 'no-results';
+    noResultsMessage.textContent = 'No articles found matching your search.';
+    noResultsMessage.style.display = 'none';
+    container.appendChild(noResultsMessage);
+    
+    function performSearch() {
+      const searchTerm = searchInput.value.toLowerCase().trim();
+      let totalResults = 0;
+      let visibleSections = 0;
+      
+      // If search is empty, show all articles
+      if (searchTerm === '') {
+        publicationSections.forEach(section => {
+          section.style.display = 'block';
+          const articles = section.querySelectorAll('.article-list li');
+          articles.forEach(article => {
+            article.classList.remove('hidden-article');
+          });
+        });
+        noResultsMessage.style.display = 'none';
+        return;
+      }
+      
+      // Search through each publication section
+      publicationSections.forEach(section => {
+        const sectionTitle = section.querySelector('.publication-title').textContent.toLowerCase();
+        const articles = section.querySelectorAll('.article-list li');
+        let visibleArticles = 0;
+        
+        articles.forEach(article => {
+          const articleText = article.textContent.toLowerCase();
+          const articleLink = article.querySelector('a').getAttribute('href').toLowerCase();
+          
+          if (articleText.includes(searchTerm) || articleLink.includes(searchTerm) || sectionTitle.includes(searchTerm)) {
+            article.classList.remove('hidden-article');
+            visibleArticles++;
+            totalResults++;
+          } else {
+            article.classList.add('hidden-article');
+          }
+        });
+        
+        // Hide sections with no matching articles
+        if (visibleArticles === 0) {
+          section.style.display = 'none';
+        } else {
+          section.style.display = 'block';
+          visibleSections++;
+        }
+      });
+      
+      // Show/hide no results message
+      if (totalResults === 0) {
+        noResultsMessage.style.display = 'block';
+      } else {
+        noResultsMessage.style.display = 'none';
+      }
+    }
+    
+    // Search when button is clicked
+    searchButton.addEventListener('click', performSearch);
+    
+    // Search when Enter key is pressed
+    searchInput.addEventListener('keyup', function(event) {
+      if (event.key === 'Enter') {
+        performSearch();
+      }
+    });
+    
+    // Real-time search as user types (with small delay)
+    let searchTimeout;
+    searchInput.addEventListener('input', function() {
+      clearTimeout(searchTimeout);
+      searchTimeout = setTimeout(performSearch, 300);
+    });
+  });
+</script>
 </body>
 </html>
