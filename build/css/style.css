@@ -190,8 +190,9 @@ nav.navbar.bootsnav .navbar-toggle i{color: #d92cf9;}
     align-items: center;
     justify-content: center;
     position:relative;
-    background:url(../images/about/welcome-banner.jpg)no-repeat;
+    background:url(../images/girlNyc.jpg)no-repeat;
     background-size:cover;
+    background-attachment: fixed;
     background-position: center;
     height:890px;
 }
@@ -257,7 +258,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #d92cf9;}
     font-size: 16px;
     color: #999fb3;
     padding: 35px 0 43px;
-    border-bottom: 1px solid #999fb3;
+/*    border-bottom: 1px solid #999fb3;*/
 }
 .single-about-add-info {
     margin: 35px 0;
@@ -271,7 +272,7 @@ nav.navbar.bootsnav .navbar-toggle i{color: #d92cf9;}
 /*.single-about-txt*/
 
 /*.single-about-img */
-.single-about-img{position: relative;box-shadow: 0 5px 20px rgba(14,25,80,.30);}
+.single-about-img{position: relative; overflow:hidden;box-shadow: 0 5px 20px rgba(14,25,80,.30);}
 .single-about-img:before {
     position:  absolute;
     content: " ";
@@ -468,7 +469,7 @@ span.single-timeline-horizontal.spacial-horizontal-line {width: 88px;}
 .main-timeline:before{
     content: "";
     width: 2px;
-    height: 84%;
+    height: 95%;
     background: #b2c1ce;
     position: absolute;
     top: 1.5%;
@@ -597,6 +598,7 @@ span.single-timeline-horizontal.spacial-horizontal-line {width: 88px;}
 .portfolio {
     padding:  50px 0 100px;
     border:  1px solid #e5ebf2;
+    background: #f9fbfd;
 }
 
 .portfolio-content {padding-top: 100px;}
@@ -851,5 +853,48 @@ span.single-timeline-horizontal.spacial-horizontal-line {width: 88px;}
 @keyframes example {
     0%   {bottom:0px;}
     100%  {bottom:7px;}
+}
+
+/*===============================
+    publication cards
+===============================*/
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 -5px;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+  .main-timeline:before {
+    display: none;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  height: 20em;
+  overflow: scroll;
+  background-color: #f1f1f1;
 }
 /*========================Thank you=================
