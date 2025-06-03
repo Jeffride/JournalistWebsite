@@ -28,7 +28,22 @@
 
 .row {
   margin-top: 1em;
+}
 
+/* Cursor styling */
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background-color: #fff;
+  margin-left: 2px;
+  animation: blink 1s infinite;
+  vertical-align: middle;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 </style></head>
 <body>
@@ -65,9 +80,33 @@
             <!-- hi <span>,</span> I'm<br> -->
             Dawn<br>
             Attride <span>.</span></h2>
-          <p>Science journalist</p>
+          <p id="typing-text"></p>
 
       </div>
+      
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          const text = "Science journalist";
+          const typingTextElement = document.getElementById('typing-text');
+          let index = 0;
+          const typingSpeed = 150; // Speed of typing in milliseconds
+          
+          function typeWriter() {
+            if (index < text.length) {
+              // Add next character
+              typingTextElement.innerHTML = text.substring(0, index + 1) + '<span class="cursor"></span>';
+              index++;
+              setTimeout(typeWriter, typingSpeed);
+            } else {
+              // When typing is complete, just show the text with blinking cursor
+              typingTextElement.innerHTML = text + '<span class="cursor"></span>';
+            }
+          }
+          
+          // Start the typing effect
+          typeWriter();
+        });
+      </script>
     </div>
   </div>
 </section>
@@ -324,7 +363,7 @@ Her work has appeared in <a href="https://www.science.org/">Science Magazine</a>
                 <div class="col-md-5">
                   <div class="experience-time text-right">
                     <h3>Intern</h3>
-                    <h4>2023-2024</h4>
+                    <h4>2022-2023</h4>
                   </div>
                 </div>
                 <div class="col-md-offset-1 col-md-5">
@@ -344,7 +383,7 @@ Her work has appeared in <a href="https://www.science.org/">Science Magazine</a>
                 <div class="col-md-5">
                   <div class="experience-time text-right">
                     <h3>Magazine & Assistant Features Editor</h3>
-                    <h4>2021 - 2023 </h4>
+                    <h4>2020-2021 & 2022-2023 </h4>
                   </div>
                 </div>
                 <div class="col-md-offset-1 col-md-5">
